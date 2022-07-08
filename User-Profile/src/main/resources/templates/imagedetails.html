@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Task For Java</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<br>
+	<div class="banner-bootom-w3-agileits py-5">
+		<div class="container py-xl-4 py-lg-2">
+			<h3 class="tittle-w3l text-center mb-lg-5 mb-sm-4 mb-3">User Information</h3>
+			<div class="row">
+				<div class="col-lg-5 col-md-8 single-right-left ">
+					<div class="grid images_3_of_2">
+						<div class="flexslider">
+							<div class="thumb-image">
+							<img th:src="@{${'/image/display/'+id}}" class="img img-responsive img-fluid" alt="">
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-lg-7 single-right-left simpleCart_shelfItem">
+					<br>
+					<div>
+						Name: <span th:text="${username}"></span>
+					</div>
+					<br>
+					<div>
+						Father Name: <span th:text="${userfname}"></span>
+					</div>
+					<br>
+					<div>
+						Mother Name: <span th:text="${usermname}"></span>
+					</div>
+					<br>
+					<div>
+						User Id: <span th:text="${id}"></span>
+					</div>
+					<br>
+					<div>
+						Description: <span th:text="${description}"></span>
+					</div>
+					<br>
+					<div>
+						Email Id: <span th:text="${useremail}"></span>
+					</div>
+					<br>
+					<div>
+						Mobile No: <span th:text="${usermobile}"></span>
+					</div>
+					<br>
+					<div>
+						Address: <span th:text="${useraddress}"></span>
+					</div>
+					<div class="right-w3l col-md-6">
+						<input type="button" id="submit"
+							class="btn btn-primary form-control" value="Submit"> <br>
+						<br>
+					</div>
+					<br> <a href="/image/show">Go Back</a> &emsp;<a href="/">Go
+						Home</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
