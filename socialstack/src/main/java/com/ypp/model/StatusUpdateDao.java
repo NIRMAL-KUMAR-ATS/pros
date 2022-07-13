@@ -8,4 +8,5 @@ public interface StatusUpdateDao extends PagingAndSortingRepository<StatusUpdate
     StatusUpdate findFirstByOrderByAddedDesc();
 
     Iterable<StatusUpdate> findAllByOwnerOrderByAddedDesc(Profile profile);
+    
 }

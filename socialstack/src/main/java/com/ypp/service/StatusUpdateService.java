@@ -16,6 +16,7 @@ import java.util.List;
 @Service
 public class StatusUpdateService {
 
+	
     private final static int PAGESIZE = 5;
 
     @Autowired

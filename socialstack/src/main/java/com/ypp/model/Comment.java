@@ -9,6 +9,7 @@ import java.util.Date;
 @Table
 public class Comment {
 
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

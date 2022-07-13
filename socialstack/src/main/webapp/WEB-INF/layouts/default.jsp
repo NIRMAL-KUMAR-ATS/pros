@@ -16,6 +16,7 @@
             ""
           type = "image/x-icon">
 
+
     <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="${contextRoot}/css/bootstrap.min.css">

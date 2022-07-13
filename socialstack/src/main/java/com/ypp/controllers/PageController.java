@@ -13,6 +13,7 @@ public class PageController {
     @Autowired
     private StatusUpdateService statusUpdateService;
 
+    
     @Value("${message.error.forbidden}")
     private String messsage;
 

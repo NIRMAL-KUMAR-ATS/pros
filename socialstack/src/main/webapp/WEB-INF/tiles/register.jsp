@@ -7,7 +7,6 @@
 
     <div class="content">
 
-
         <div style="max-width:520px;margin:0 auto;">
 
             <h3>New User Registration</h3>

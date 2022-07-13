@@ -25,6 +25,7 @@ import java.util.Map;
 @Controller
 public class AdminController {
 
+	
     @Autowired
     private StatusUpdateService statusUpdateService;
     

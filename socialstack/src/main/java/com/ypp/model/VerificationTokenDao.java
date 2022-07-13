@@ -8,4 +8,5 @@ public interface VerificationTokenDao extends CrudRepository<VerificationToken, 
 
     VerificationToken findByToken(String token);
 
+    
 }

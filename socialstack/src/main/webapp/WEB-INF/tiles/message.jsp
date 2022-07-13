@@ -7,6 +7,5 @@
 
         <p class="comfirm-message"><c:out value="${message}"/></p>
 
-
     </div>
 </div>

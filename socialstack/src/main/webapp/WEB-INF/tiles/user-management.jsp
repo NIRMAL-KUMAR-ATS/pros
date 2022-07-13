@@ -5,7 +5,6 @@
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 
 <c:url var="img" value="/img" />
-
 <c:set var="records" value="${profiles}"/>
 <jsp:useBean id="records" type="java.util.List"/>
 <c:set var="record" value='<%=records.size()%>'/>

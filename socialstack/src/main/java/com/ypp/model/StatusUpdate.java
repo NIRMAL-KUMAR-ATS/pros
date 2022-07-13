@@ -8,6 +8,7 @@ import java.util.Date;
 @Entity
 @Table(name="post")
 public class StatusUpdate {
+	
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

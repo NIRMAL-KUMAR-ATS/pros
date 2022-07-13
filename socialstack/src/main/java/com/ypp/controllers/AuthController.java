@@ -21,6 +21,7 @@ import java.util.Date;
 @Controller
 public class AuthController {
 
+	
 	@Autowired
     private WebUserService webUserService;
 

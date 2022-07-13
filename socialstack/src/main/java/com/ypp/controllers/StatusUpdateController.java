@@ -30,6 +30,7 @@ import java.util.Map;
 @Controller
 public class StatusUpdateController {
 	
+	
     @Autowired
     private StatusUpdateService statusUpdateService;
 

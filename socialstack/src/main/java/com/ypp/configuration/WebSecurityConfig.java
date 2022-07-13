@@ -13,6 +13,7 @@ import com.ypp.service.WebUserService;
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	
     @Autowired
     private WebUserService userService;
 

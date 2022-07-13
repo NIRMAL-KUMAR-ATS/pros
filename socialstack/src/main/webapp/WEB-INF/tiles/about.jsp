@@ -4,7 +4,6 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2">
         <div class="social-feed-separated">
-
             <div class="social-avatar">
                 <a href="">
                     <img alt="image" src="https://bootdey.com/img/Content/avatar/avatar1.png">

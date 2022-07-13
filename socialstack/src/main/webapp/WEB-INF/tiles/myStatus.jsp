@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="${contextRoot}/css/newfeed.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
-
 <div class="col-md-8 col-md-offset-2">
     <div class="panel-heading">
 

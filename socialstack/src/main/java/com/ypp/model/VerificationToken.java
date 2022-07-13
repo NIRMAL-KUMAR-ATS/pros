@@ -8,6 +8,7 @@ import java.util.Date;
 @Table(name = "verification")
 public class VerificationToken {
 	
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -13,6 +13,7 @@ import javax.validation.constraints.Size;
 @ConfirmPasswordMatch(message ="{error.password.mismatch}")
 public class WebUser {
 
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

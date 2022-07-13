@@ -5,7 +5,6 @@
 <link rel="stylesheet" href="/css/profile.css">
 <c:url var="img" value="/img" />
 
-
 <div class="container">
     <div class="main-body">
         <div class="row">

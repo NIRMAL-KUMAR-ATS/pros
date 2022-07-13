@@ -16,6 +16,7 @@ import javax.validation.Payload;
 @Constraint(validatedBy=ConfirmPasswordMatchValidator.class)
 @Documented
 public @interface ConfirmPasswordMatch {
+	
     String message() default "{error.password.mismatch}";
 
     Class<?>[] groups() default {};

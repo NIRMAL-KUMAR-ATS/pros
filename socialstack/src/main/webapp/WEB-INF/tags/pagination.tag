@@ -15,7 +15,6 @@
 
 <c:set var="endPage" value="${(block + 1) * size > page.totalPages ? page.totalPages : (block + 1) * size}"/>
 
-
 <c:if test="${page.totalPages != 1}">
 
 <ul class="pagination">
