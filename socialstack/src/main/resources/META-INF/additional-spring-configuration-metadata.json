@@ -1,0 +1,72 @@
+{"properties": [
+  {
+    "name": "photo.upload.status.directory",
+    "type": "java.lang.String",
+    "description": "A description for 'photo.upload.status.directory'"
+  },
+  {
+    "name": "photo.upload.avatar.directory",
+    "type": "java.lang.String",
+    "description": "A description for 'photo.upload.avatar.directory'"
+  },
+  {
+    "name": "mail.smtp.port",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.smtp.port'"
+  },
+  {
+    "name": "message.registration.confirmed",
+    "type": "java.lang.String",
+    "description": "A description for 'message.registration.confirmed'"
+  },
+  {
+    "name": "message.invalid.user",
+    "type": "java.lang.String",
+    "description": "A description for 'message.invalid.user'"
+  },
+  {
+    "name": "message.error.forbidden",
+    "type": "java.lang.String",
+    "description": "A description for 'message.error.forbidden'"
+  },
+  {
+    "name": "message.expired.token",
+    "type": "java.lang.String",
+    "description": "A description for 'message.expired.token'"
+  },
+  {
+    "name": "mail.smtp.pass",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.smtp.pass'"
+  },
+  {
+    "name": "mail.smtp.user",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.smtp.user'"
+  },
+  {
+    "name": "mail.smtp.host",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.smtp.host'"
+  },
+  {
+    "name": "mail.enable",
+    "type": "java.lang.String",
+    "description": "A description for 'mail.enable'"
+  },
+  {
+    "name": "spring.jpa.hibernate.dialect",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.dialect'"
+  },
+  {
+    "name": "spring.jpa.hibernate.hbm2ddl.auto",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.jpa.hibernate.hbm2ddl.auto'"
+  },
+  {
+    "name": "site.url",
+    "type": "java.lang.String",
+    "description": "A description for 'site.url'"
+  }
+]}

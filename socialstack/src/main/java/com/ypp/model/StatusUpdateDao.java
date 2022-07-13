@@ -1,0 +1,11 @@
+package com.ypp.model;
+
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface StatusUpdateDao extends PagingAndSortingRepository<StatusUpdate, Long> {
+    StatusUpdate findFirstByOrderByAddedDesc();
+
+    Iterable<StatusUpdate> findAllByOwnerOrderByAddedDesc(Profile profile);
+}
