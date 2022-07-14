@@ -37,13 +37,16 @@ public class ProfileController {
     private String photoUploadDirectory;
 
     private WebUser getUser() {
+    	
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName();
         WebUser user = webUserService.findUser(email);
         return user;
+        
     }
 
     private ModelAndView showProfile(WebUser user) {
+    	
         ModelAndView modelAndView = new ModelAndView();
 
         if (user == null) {
@@ -57,6 +60,7 @@ public class ProfileController {
         modelAndView.setViewName("app.profile");
         modelAndView.getModel().put("user", getUser());
         return modelAndView;
+        
     }
 
     @RequestMapping(value="/profile")
@@ -70,6 +74,7 @@ public class ProfileController {
     public ModelAndView showProfile(@PathVariable("id") Long id) {
         WebUser webUser = webUserService.findById(id);
         return showProfile(webUser);
+        
     }
 
     @RequestMapping(value = "/editprofile", method = RequestMethod.GET)
@@ -82,6 +87,7 @@ public class ProfileController {
         modelAndView.getModel().put("profile", profile);
 
         return modelAndView;
+
     }
 
     @RequestMapping(value = "/editprofile", method = RequestMethod.POST)

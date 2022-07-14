@@ -15,8 +15,6 @@
  --%>    <link rel = "icon" href =
             ""
           type = "image/x-icon">
-
-
     <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="${contextRoot}/css/bootstrap.min.css">
@@ -50,7 +48,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-               <a class="navbar-brand" href="${onlyfriends}">
+<%--                <a class="navbar-brand" href="${onlyfriends}">
+ --%>               
+ 			<a class="navbar-brand" href="${home}">
                 <img alt="" src="https://yourprivatepage.com/demo/static/media/logo.eb447b6ac14e4b7a4bf7.png"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
@@ -86,8 +86,8 @@
                                role="button" aria-haspopup="true" aria-expanded="false">Account
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/addstatus">Add Status</a></li>
-                                <li><a href="/mystatus">My Status</a></li>
+                                <!-- <li><a href="/addstatus">Add Status</a></li>
+                                <li><a href="/mystatus">My Status</a></li> -->
                                 <li><a href="javascript:$('#logoutForm').submit()">Logout</a></li>
                             </ul>
                         </li>
