@@ -1,9 +1,8 @@
 package com.ypp.controllers;
 
+import java.awt.PageAttributes.MediaType;
 import java.util.Date;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.ypp.model.Profile;
 import com.ypp.model.VerificationToken;
 import com.ypp.model.WebUser;
@@ -47,7 +45,9 @@ public class AuthController {
 
     @RequestMapping("/login")
     String admin() {
+    	
         return "app.login";
+        
     }
 
     @RequestMapping("/register")
@@ -83,11 +83,25 @@ public class AuthController {
 
             modelAndView.setViewName("redirect:/verify");
         }
-
+        
        return modelAndView;
        //return new ModelAndView("{\"email\" : \"email\"}", HttpStatus.OK);
         //new ResponseEntity<>("{\"status\" : \"UP\"}", HttpStatus.OK);
+    
     }
+    
+//    public ModelAndView userAccount(ModelAndView modelAndView ,@ModelAttribute(value="useraccount") @Valid WebUser user, BindingResult result) {
+//    	
+//    	modelAndView.setViewName("app.useraccount");
+//    	
+//    	Profile profile = new Profile(user);
+//    	profileService.save(profile);
+//    	
+//    	modelAndView.setViewName(expiredTokenMessage);
+//    	
+//		return modelAndView;
+//		
+//    }
 
     @RequestMapping("/verify")
     String verify() {

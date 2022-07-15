@@ -30,8 +30,6 @@
                                     <button class="btn btn-outline-primary">Message</button>
                                 </c:otherwise>
                             </c:choose>
-
-
                         </div>
                     </div>
                 </div>

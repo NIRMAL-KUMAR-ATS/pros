@@ -23,7 +23,6 @@
                     <form:input type="email" name="email" id="email" path="email" class="form-control" placeholder="e-mail address" />
                 </div>
 
-
                 <div class="form-group">
                     <label for="password">Password</label>
                     <form:input type="password" name="password" id="password" path="plainPassword" class="form-control" placeholder="password" />

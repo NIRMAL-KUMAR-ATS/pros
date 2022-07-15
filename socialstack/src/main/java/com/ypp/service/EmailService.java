@@ -46,6 +46,7 @@ public class EmailService {
         templateEngine.setTemplateResolver(templateResolver);
 
         this.templateEngine = templateEngine;
+        
     }
 
     public void sendVerificationEmail(String emailAddress, String username, String token) {
@@ -58,7 +59,6 @@ public class EmailService {
         String emailContents = templateEngine.process("verifyemail", context);
 
         System.out.println(emailContents);
-
 
         MimeMessagePreparator preparator = new MimeMessagePreparator() {
 

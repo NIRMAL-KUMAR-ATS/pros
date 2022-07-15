@@ -11,8 +11,8 @@
     <meta http-rquiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%--     <title><tiles:insertAttribute name="title" /></title>
- --%>    <link rel = "icon" href =
+<%-- <title><tiles:insertAttribute name="title" /></title> --%>    
+ 		<link rel = "icon" href =
             ""
           type = "image/x-icon">
     <c:set var="contextRoot" value="${pageContext.request.contextPath}"/>
@@ -86,8 +86,9 @@
                                role="button" aria-haspopup="true" aria-expanded="false">Account
                                 <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <!-- <li><a href="/addstatus">Add Status</a></li>
+                                <!-- <li><a href="/addstatus">Add Status</a></li>                               
                                 <li><a href="/mystatus">My Status</a></li> -->
+                                <li><a href="/useraccount">Add Account</a></li>
                                 <li><a href="javascript:$('#logoutForm').submit()">Logout</a></li>
                             </ul>
                         </li>

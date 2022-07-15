@@ -30,7 +30,6 @@ public class App extends SpringBootServletInitializer {
         
     }
     
-    
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
     	
