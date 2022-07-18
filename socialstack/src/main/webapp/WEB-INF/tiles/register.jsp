@@ -17,22 +17,18 @@
 
             <%--@elvariable id="user" type="com.ducthangchin.model.WebUser"--%>
             <form:form  class="userfrm" modelAttribute="user" method="POST" >
-
                 <div class="form-group">
                     <label for="email">Email</label>
                     <form:input type="email" name="email" id="email" path="email" class="form-control" placeholder="e-mail address" />
                 </div>
-
                 <div class="form-group">
                     <label for="password">Password</label>
                     <form:input type="password" name="password" id="password" path="plainPassword" class="form-control" placeholder="password" />
                 </div>
-
                 <div class="form-group">
                     <label for="passwordre">Confirm Password</label>
                     <form:input type="password" name="passwordre" id="passwordre" path="confirmPassword" class="form-control" placeholder="confirm password" />
                 </div>
-
                 <div class="form-group">
                     <label for="username">Full Name</label>
                     <form:input type="text" name="username" id="username" path="username" class="form-control" placeholder="Full Name"/>

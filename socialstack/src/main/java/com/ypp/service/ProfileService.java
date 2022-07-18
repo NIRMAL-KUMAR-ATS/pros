@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.ypp.model.Profile;
 import com.ypp.model.ProfileDao;
 import com.ypp.model.WebUser;
+import com.ypp.model.WebUserDao;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -14,11 +15,15 @@ public class ProfileService {
 	
     @Autowired
     private ProfileDao profileDao;
+    
+    @Autowired
+    private WebUserDao webUserDao;
 
     public Profile findProfile(WebUser user) {
         return profileDao.findByUser(user);
     }
 
+  
     public void save(Profile profile) {
         profileDao.save(profile);
     }

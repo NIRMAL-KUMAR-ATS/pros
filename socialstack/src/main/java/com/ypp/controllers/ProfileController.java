@@ -171,11 +171,15 @@ public class ProfileController {
         Path outputFilePath = Paths.get(photoUploadDirectory, file.getOriginalFilename());
 
         try {
+        	
             Files.deleteIfExists(outputFilePath);
             Files.copy(file.getInputStream(), outputFilePath);
+            
         }
         catch (IOException e)  {
+        	
             e.printStackTrace();
+            
         }
 
         WebUser user = getUser();

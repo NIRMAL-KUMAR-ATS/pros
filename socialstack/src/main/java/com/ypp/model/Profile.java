@@ -20,9 +20,7 @@ public class Profile {
     String address;
 
     String avatarURL;
-
     String phone;
-
     String fullname;
     
     String age;
@@ -40,6 +38,18 @@ public class Profile {
 	String twitter;
 	String instagram;
 	String facebook;
+	String changePassword;
+	
+	String country;
+	String state;
+	String city;
+	String street;
+	String zipcode;
+	String email;
+	String nameoncard;
+	String cardnumber;
+	String expirationdate;
+	
 
     public String getWebsite() {
 		return website;
@@ -227,4 +237,85 @@ public class Profile {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
+
+	public String getChangePassword() {
+		return changePassword;
+	}
+
+	public void setChangePassword(String changePassword) {
+		this.changePassword = changePassword;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNameoncard() {
+		return nameoncard;
+	}
+
+	public void setNameoncard(String nameoncard) {
+		this.nameoncard = nameoncard;
+	}
+
+	public String getCardnumber() {
+		return cardnumber;
+	}
+
+	public void setCardnumber(String cardnumber) {
+		this.cardnumber = cardnumber;
+	}
+
+	public String getExpirationdate() {
+		return expirationdate;
+	}
+
+	public void setExpirationdate(String expirationdate) {
+		this.expirationdate = expirationdate;
+	}
+	
 }

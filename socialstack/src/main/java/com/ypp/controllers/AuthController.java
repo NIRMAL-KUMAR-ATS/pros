@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -23,7 +22,6 @@ import com.ypp.service.WebUserService;
 
 @Controller
 public class AuthController {
-
 	
 	@Autowired
     private WebUserService webUserService;
@@ -63,10 +61,10 @@ public class AuthController {
 
     }
 
-    @RequestMapping(value="/register", method= RequestMethod.POST)
+    @RequestMapping(value="/register", method= RequestMethod.POST, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
    // @PostMapping(value = "/register")
-   // @ResponseBody
-    public ModelAndView register (ModelAndView modelAndView, @ModelAttribute(value="user") @Valid WebUser user, BindingResult result) {
+   @ResponseBody
+    public ModelAndView register (Object model ,ModelAndView modelAndView, @ModelAttribute(value="user") @Valid WebUser user, BindingResult result) {
 
         modelAndView.setViewName("app.register");
 
@@ -84,7 +82,10 @@ public class AuthController {
             modelAndView.setViewName("redirect:/verify");
         }
         
-       return modelAndView;
+        return modelAndView;
+      // return "User Registerred successfully :"+ user.getUsername()+ " " + user.getPassword() + " " + user.getConfirmPassword()+ " " + user.getEmail();
+       // return new ModelAndView(new MappingJacksonJsonView(), model);
+
        //return new ModelAndView("{\"email\" : \"email\"}", HttpStatus.OK);
         //new ResponseEntity<>("{\"status\" : \"UP\"}", HttpStatus.OK);
     
@@ -125,7 +126,9 @@ public class AuthController {
         Date expiryDate = token.getExpiry();
         if (expiryDate.before(new Date())) {
             modelAndView.setViewName("redirect:/expiredtoken");
+            
 //            System.out.println("token deleted");
+            
             webUserService.deleteToken(token);
             return modelAndView;
             
@@ -148,6 +151,7 @@ public class AuthController {
         modelAndView.setViewName("app.message");
 
         return modelAndView;
+        
     }
 
     @RequestMapping("/invaliduser" )
@@ -167,6 +171,6 @@ public class AuthController {
         modelAndView.setViewName("app.message");
 
         return modelAndView;
-    
+        
     }
 }

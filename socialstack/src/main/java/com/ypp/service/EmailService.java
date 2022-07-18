@@ -16,7 +16,6 @@ import java.util.Date;
 @Service
 public class EmailService {
 
-	
     private TemplateEngine templateEngine;
 
     @Autowired
@@ -33,6 +32,13 @@ public class EmailService {
             mailSender.send(preparator);
         }
     }
+    
+//    private void sendMail(MimeMessage mimeMessage) {
+//    	
+//    	if(enable) {
+//    		mailSender.send(mimeMessage);
+//    	}
+//    }
 
     @Autowired
     public EmailService(TemplateEngine templateEngine) {
@@ -46,7 +52,6 @@ public class EmailService {
         templateEngine.setTemplateResolver(templateResolver);
 
         this.templateEngine = templateEngine;
-        
     }
 
     public void sendVerificationEmail(String emailAddress, String username, String token) {
@@ -70,13 +75,11 @@ public class EmailService {
                 message.setTo(emailAddress);
                 message.setFrom(new InternetAddress("no-reply@ducthangchin.com"));
                 message.setSubject("Please Verify Your Email Address");
-                message.setSentDate(new Date());
-
-                message.setText(emailContents, true);
+                message.setSentDate(new Date());      
             }
-
         };
-
+        
         send(preparator);
+        
     }
 }

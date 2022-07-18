@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.ypp.model.Comment;
 import com.ypp.model.CommentDao;
-import com.ypp.model.Profile;
 import com.ypp.model.StatusUpdate;
-import javax.lang.model.type.ArrayType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,5 +40,4 @@ public class CommentService {
     public void deleteComment(Comment comment) {
         commentDao.delete(comment);
     }
-
 }

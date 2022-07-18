@@ -47,12 +47,14 @@ public class StatusUpdateController {
     private String photoUploadDirectory;
 
     private WebUser getUser() {
+    	
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName();
 
         WebUser user = webUserService.findUser(email);
 
         return user;
+        
     }
 
     @RequestMapping(value = "/addstatus", method = RequestMethod.GET)
@@ -61,6 +63,7 @@ public class StatusUpdateController {
         modelAndView.setViewName("app.addStatus");
 
         return modelAndView;
+        
     }
 
     @RequestMapping(value = "/addstatus", method = RequestMethod.POST)
@@ -69,6 +72,7 @@ public class StatusUpdateController {
         modelAndView.setViewName("app.addStatus");
 
         if (!result.hasErrors()) {
+        	
             WebUser user = getUser();
 
             statusUpdate.setOwner(profileService.findProfile(user));
@@ -87,10 +91,14 @@ public class StatusUpdateController {
         modelAndView.setViewName("redirect:/mystatus");
 
         if (getUser().getId() == statusUpdateService.getStatus(id).getOwner().getUser().getId() || getUser().getRole().equals("ROLE_ADMIN")) {
-            if(getUser().getRole().equals("ROLE_ADMIN")){
+            
+        	if(getUser().getRole().equals("ROLE_ADMIN")){
+        		
                 modelAndView.setViewName("redirect:/viewstatus");
             }
+        	
             statusUpdateService.delete(id);
+         
         }
 
         return modelAndView;

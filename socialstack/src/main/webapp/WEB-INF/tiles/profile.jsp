@@ -5,9 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <link rel="stylesheet" href="/css/profile.css">
-
 <c:url var="img" value="/img" />
-
 <div class="main-body">
     <div class="row gutters-sm">
         <div class="col-md-4 mb-3">
@@ -24,7 +22,6 @@
                                 <c:when test="${profile.user.role == 'ROLE_ADMIN'}">
                                     <button class="btn btn-primary">Administrator</button>
                                 </c:when>
-
                                 <c:otherwise>
                                     <button class="btn btn-primary">Follow</button>
                                     <button class="btn btn-outline-primary">Message</button>
@@ -33,31 +30,88 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>      
              <div class="card mt-3">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
                         <span class="text-secondary"></span>
+                      		<p>${profile.website}</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
-                      <span class="text-secondary"></span>                
+                      <span class="text-secondary"></span> 
+                       <p>${profile.github}</p>              
                       </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
                          <span class="text-secondary"></span>
+                           <p>${profile.twitter}</p>
                    </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
                          <span class="text-secondary"></span>
+                           <p>${profile.instagram}</p>
                     </li>
   					<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                         <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
                          <span class="text-secondary"></span>
+                        	<p>${profile.facebook}</p>
                     </li>   
                 </ul>
             </div>
+            <hr>
+            <!--  -->
+            <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Country</h6>
+                        <span class="text-secondary"></span>
+                      		<p>${profile.country}</p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">State</h6>
+                      <span class="text-secondary"></span> 
+                       <p>${profile.state}</p>              
+                      </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">City</h6>
+                         <span class="text-secondary"></span>
+                           <p>${profile.city}</p>
+                   </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Street</h6>
+                         <span class="text-secondary"></span>
+                           <p>${profile.street}</p>
+                    </li>
+  					<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Zipcode</h6>
+                         <span class="text-secondary"></span>
+                        	<p>${profile.zipcode}</p>
+                    </li> 
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Email</h6>
+                         <span class="text-secondary"></span>
+                        	<p>${profile.email}</p>
+                    </li>   
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Name On Card</h6>
+                         <span class="text-secondary"></span>
+                        	<p>${profile.nameoncard}</p>
+                    </li>   
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Card Number</h6>
+                         <span class="text-secondary"></span>
+                        	<p>${profile.cardnumber}</p>
+                    </li>   
+                    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0">Expiration</h6>
+                         <span class="text-secondary"></span>
+                        	<p>${profile.expirationdate}</p>
+                    </li>     
+                </ul>
+            </div>
+    
         </div>
         <div class="col-md-8">
             <div class="card mb-3">
@@ -80,15 +134,12 @@
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Job Description.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.about}</p>
                                 </c:otherwise>
                             </c:choose>
-
                         </div>
                     </div>
-
                     <hr>
                     <div class="row">
                         <div class="col-sm-3">
@@ -96,11 +147,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Phone Number.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.phone}</p>
                                 </c:otherwise>
@@ -108,17 +157,15 @@
                         </div>
                     </div>
                     <hr>
-                                         <div class="row">
+                      <div class="row">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Age</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Age.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.age}</p>
                                 </c:otherwise>
@@ -126,18 +173,15 @@
                         </div>
                     </div>
                     <hr>
-                   
                      <div class="row">
                         <div class="col-sm-3">
                             <h6 class="mb-0">DOB</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add DOB.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.dob}</p>
                                 </c:otherwise>
@@ -151,11 +195,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Height.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.height}</p>
                                 </c:otherwise>
@@ -169,11 +211,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Education.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.education}</p>
                                 </c:otherwise>
@@ -187,30 +227,25 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Languages.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.languages}</p>
                                 </c:otherwise>
                             </c:choose>
                         </div>
                     </div>
-                    <hr>
-               
+                    <hr>    
                      <div class="row">
                         <div class="col-sm-3">
                             <h6 class="mb-0">Gender</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Gender.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.gendre}</p>
                                 </c:otherwise>
@@ -224,11 +259,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Hobbies.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.hobbies}</p>
                                 </c:otherwise>
@@ -242,11 +275,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Drinker.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.drinker}</p>
                                 </c:otherwise>
@@ -260,11 +291,9 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Smoker.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.smoker}</p>
                                 </c:otherwise>
@@ -278,27 +307,39 @@
                         </div>
                         <div class="col-sm-9 text-secondary">
                             <c:choose>
-
                                 <c:when test="${profile.about == null}">
                                     <p>Click Edit to add Address.</p>
                                 </c:when>
-
                                 <c:otherwise>
                                     <p>${profile.address}</p>
                                 </c:otherwise>
                             </c:choose>
                         </div>
-                    </div>
+                    </div>    
                     <hr>
-
-
+                     <div class="row">
+                        <div class="col-sm-3">
+                            <h6 class="mb-0">Change Password</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <c:choose>
+                                <c:when test="${profile.about == null}">
+                                    <p>Change Password.</p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p>${profile.changePassword}</p>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </div>    
+                    <hr>
                     <c:if test="${user.id == profile.user.id}">
                     <div class="row">
                         <div class="col-sm-12">
                             <a class="btn btn-info " target="__blank" href="/editprofile">Edit</a>
                         </div>
-                    </div>
-                    </c:if>
+                      </div>
+                   </c:if>
                 </div>
             </div>
         </div>

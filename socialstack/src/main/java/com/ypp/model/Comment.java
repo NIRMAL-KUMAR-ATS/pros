@@ -17,6 +17,7 @@ public class Comment {
     @ManyToOne(targetEntity = Profile.class)
     @JoinColumn(nullable = false)
     Profile commenter;
+    private Integer likeCount;
 
     @ManyToOne(targetEntity = StatusUpdate.class)
     @JoinColumn(nullable = false)

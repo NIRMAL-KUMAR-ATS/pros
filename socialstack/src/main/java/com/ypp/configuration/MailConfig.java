@@ -30,8 +30,6 @@ public class MailConfig {
         mailSender.setPort(port);
         mailSender.setUsername(user);
         mailSender.setPassword(password);
-
-        return mailSender;
-        
+        return mailSender;    
     }
 }
