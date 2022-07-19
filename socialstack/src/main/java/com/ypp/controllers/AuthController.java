@@ -1,21 +1,31 @@
 package com.ypp.controllers;
 
-import java.awt.PageAttributes.MediaType;
+import java.util.Collections;
 import java.util.Date;
+
+import javax.management.relation.Role;
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.ypp.model.Profile;
 import com.ypp.model.VerificationToken;
 import com.ypp.model.WebUser;
+import com.ypp.model.WebUserDao;
 import com.ypp.service.EmailService;
 import com.ypp.service.ProfileService;
 import com.ypp.service.WebUserService;
@@ -28,7 +38,7 @@ public class AuthController {
 
     @Autowired
     private EmailService emailService;
-
+    
     @Autowired
     private ProfileService profileService;
 
@@ -40,6 +50,7 @@ public class AuthController {
 
     @Value("${message.expired.token}")
     private String expiredTokenMessage;
+    
 
     @RequestMapping("/login")
     String admin() {
@@ -55,7 +66,7 @@ public class AuthController {
 
         modelAndView.getModel().put("user", user);
 
-        modelAndView.setViewName("app.register");
+       // modelAndView.setViewName("app.register");
 
         return modelAndView;
 
@@ -66,7 +77,13 @@ public class AuthController {
    @ResponseBody
     public ModelAndView register (Object model ,ModelAndView modelAndView, @ModelAttribute(value="user") @Valid WebUser user, BindingResult result) {
 
-        modelAndView.setViewName("app.register");
+//    	
+    	ModelAndView mav = new ModelAndView(); 
+    	mav.addObject("key1", "value1"); 
+    	mav.addObject("key2", "value2");
+//    	
+    	
+       // modelAndView.setViewName("app.register");
 
         if(!result.hasErrors()) {
 
@@ -79,10 +96,11 @@ public class AuthController {
 
             emailService.sendVerificationEmail(user.getEmail(), user.getUsername(), token);
 
-            modelAndView.setViewName("redirect:/verify");
+          //  modelAndView.setViewName("redirect:/verify");
         }
         
         return modelAndView;
+        
       // return "User Registerred successfully :"+ user.getUsername()+ " " + user.getPassword() + " " + user.getConfirmPassword()+ " " + user.getEmail();
        // return new ModelAndView(new MappingJacksonJsonView(), model);
 
@@ -90,6 +108,15 @@ public class AuthController {
         //new ResponseEntity<>("{\"status\" : \"UP\"}", HttpStatus.OK);
     
     }
+    
+    @PostMapping("/products")
+	public ResponseEntity<WebUser> createProduct(@RequestBody WebUser webUser){
+    	
+		return ResponseEntity.ok().body(this.webUserService.save(webUser));
+				//productService.createProduct(product));
+	}
+    
+ 
     
 //    public ModelAndView userAccount(ModelAndView modelAndView ,@ModelAttribute(value="useraccount") @Valid WebUser user, BindingResult result) {
 //    	

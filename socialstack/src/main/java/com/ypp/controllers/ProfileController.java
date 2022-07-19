@@ -23,172 +23,253 @@ import java.nio.file.Paths;
 @Controller
 public class ProfileController {
 
-	
-    @Autowired
-    private ProfileService profileService;
+	@Autowired
+	private ProfileService profileService;
 
-    @Autowired
-    private WebUserService webUserService;
+	@Autowired
+	private WebUserService webUserService;
 
-    @Autowired
-    private StatusUpdateService statusUpdateService;
+	@Autowired
+	private StatusUpdateService statusUpdateService;
 
-    @Value("${photo.upload.avatar.directory}")
-    private String photoUploadDirectory;
+	@Value("${photo.upload.avatar.directory}")
+	private String photoUploadDirectory;
 
-    private WebUser getUser() {
-    	
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String email = auth.getName();
-        WebUser user = webUserService.findUser(email);
-        return user;
-        
-    }
+	private WebUser getUser() {
 
-    private ModelAndView showProfile(WebUser user) {
-    	
-        ModelAndView modelAndView = new ModelAndView();
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String email = auth.getName();
+		WebUser user = webUserService.findUser(email);
+		return user;
 
-        if (user == null) {
-            modelAndView.setViewName("redirect:/");
-            return modelAndView;
-        }
+	}
 
-        Profile profile = profileService.findProfile(user);
-        modelAndView.getModel().put("profile", profile);
+	private ModelAndView showProfile(WebUser user) {
 
-        modelAndView.setViewName("app.profile");
-        modelAndView.getModel().put("user", getUser());
-        return modelAndView;
-        
-    }
+		ModelAndView modelAndView = new ModelAndView();
 
-    @RequestMapping(value="/profile")
-    public ModelAndView showProfile() {
-        WebUser webUser = getUser();
+		if (user == null) {
+			modelAndView.setViewName("redirect:/");
+			return modelAndView;
+		}
 
-        return showProfile(webUser);
-    }
+		Profile profile = profileService.findProfile(user);
+		modelAndView.getModel().put("profile", profile);
 
-    @RequestMapping(value="/profile/{id}")
-    public ModelAndView showProfile(@PathVariable("id") Long id) {
-        WebUser webUser = webUserService.findById(id);
-        return showProfile(webUser);
-        
-    }
+		modelAndView.setViewName("app.profile");
+		modelAndView.getModel().put("user", getUser());
+		return modelAndView;
 
-    @RequestMapping(value = "/editprofile", method = RequestMethod.GET)
-    public ModelAndView editProfile(ModelAndView modelAndView, @ModelAttribute("editProfile") Profile editProfile) {
+	}
 
-        modelAndView.setViewName("app.editProfile");
-        WebUser user = getUser();
-        Profile profile = profileService.findProfile(user);
+	@RequestMapping(value = "/profile")
+	public ModelAndView showProfile() {
+		WebUser webUser = getUser();
 
-        modelAndView.getModel().put("profile", profile);
+		return showProfile(webUser);
+	}
 
-        return modelAndView;
+	@RequestMapping(value = "/profile/{id}")
+	public ModelAndView showProfile(@PathVariable("id") Long id) {
+		WebUser webUser = webUserService.findById(id);
+		return showProfile(webUser);
 
-    }
+	}
 
-    @RequestMapping(value = "/editprofile", method = RequestMethod.POST)
-    ModelAndView editProfile(ModelAndView modelAndView, @Valid Profile profile, BindingResult result) {
+	@RequestMapping(value = "/editprofile", method = RequestMethod.GET)
+	public ModelAndView editProfile(ModelAndView modelAndView, @ModelAttribute("editProfile") Profile editProfile) {
 
-        modelAndView.setViewName("app.editProfile");
+		modelAndView.setViewName("app.editProfile");
+		WebUser user = getUser();
+		Profile profile = profileService.findProfile(user);
 
-        if (!result.hasErrors()) {
-            WebUser user = getUser();
+		modelAndView.getModel().put("profile", profile);
 
-            Profile currentProfile = profileService.findProfile(user);
+		return modelAndView;
 
-            if (profile.getFullname() != ""){
-                currentProfile.setFullname(profile.getFullname());
-            }
-            if (profile.getAbout() != ""){
-                currentProfile.setAbout(profile.getAbout());
-            }
-            if (profile.getPhone() != ""){
-                currentProfile.setPhone(profile.getPhone());
-            }
-            if(profile.getAge() != "") {
-            	currentProfile.setAge(profile.getAge());
-            }
-            if(profile.getDob() != "") {
-            	currentProfile.setDob(profile.getDob());
-            }
-            if(profile.getEducation() != "") {
-            	currentProfile.setEducation(profile.getEducation());
-            }
-            if(profile.getLanguages() != "") {
-            	currentProfile.setLanguages(profile.getLanguages());
-            }
-            if(profile.getGendre() != "") {
-            	currentProfile.setGendre(profile.getGendre());
-            }
-            if(profile.getHobbies() != "") {
-            	currentProfile.setHobbies(profile.getHobbies());
-            }
-            if(profile.getDrinker() != "") {
-            	currentProfile.setDrinker(profile.getDrinker());
-            }
-            if(profile.getSmoker() != "") {
-            	currentProfile.setSmoker(profile.getSmoker());
-            }
-            if(profile.getWebsite() != "") {
-            	currentProfile.setWebsite(profile.getWebsite());
-            }
-            if(profile.getGithub() != "") {
-            	currentProfile.setGithub(profile.getGithub());
-            }
-            if(profile.getTwitter() != "") {
-            	currentProfile.setTwitter(profile.getTwitter());
-            }
-            if(profile.getInstagram() != "") {
-            	currentProfile.setInstagram(profile.getInstagram());
-            }
-            if(profile.getFacebook() != "") {
-            	currentProfile.setFacebook(profile.getFacebook());
-            }
+	}
 
-            profileService.save(currentProfile);
-            modelAndView.setViewName("redirect:/profile");
-        }
+	@RequestMapping(value = "/editprofile", method = RequestMethod.POST)
+	ModelAndView editProfile(ModelAndView modelAndView, @Valid Profile profile, BindingResult result) {
 
-        return modelAndView;
-    }
+		modelAndView.setViewName("app.editProfile");
 
-    @RequestMapping(value = "upload-profile-photo", method=RequestMethod.GET)
-    public ModelAndView photoUpload(ModelAndView modelAndView) {
+		if (!result.hasErrors()) {
+			
+			WebUser user = getUser();
 
-        modelAndView.setViewName("app.uploadProfilePhoto");
+			Profile currentProfile = profileService.findProfile(user);
 
-        return  modelAndView;
-    }
+			if (profile.getFullname() != "") {
 
-    @RequestMapping(value = "upload-profile-photo", method=RequestMethod.POST)
-    public ModelAndView handlePhotoUpload(ModelAndView modelAndView, @RequestParam("file")MultipartFile file) {
-        modelAndView.setViewName("redirect:/profile");
+				currentProfile.setFullname(profile.getFullname());
 
-        Path outputFilePath = Paths.get(photoUploadDirectory, file.getOriginalFilename());
+			}
+			if (profile.getAbout() != "") {
 
-        try {
-        	
-            Files.deleteIfExists(outputFilePath);
-            Files.copy(file.getInputStream(), outputFilePath);
-            
-        }
-        catch (IOException e)  {
-        	
-            e.printStackTrace();
-            
-        }
+				currentProfile.setAbout(profile.getAbout());
 
-        WebUser user = getUser();
-        Profile profile = profileService.findProfile(user);
+			}
+			if (profile.getPhone() != "") {
 
-        profile.setAvatarURL("/avatar/"+file.getOriginalFilename());
-        profileService.save(profile);
+				currentProfile.setPhone(profile.getPhone());
 
-        return modelAndView;
+			}
+			if (profile.getAge() != "") {
 
-    }
+				currentProfile.setAge(profile.getAge());
+
+			}
+			if (profile.getDob() != "") {
+
+				currentProfile.setDob(profile.getDob());
+
+			}
+			if (profile.getEducation() != "") {
+
+				currentProfile.setEducation(profile.getEducation());
+
+			}
+			if(profile.getHeight() != "") {
+				
+				currentProfile.setHeight(profile.getHeight());
+				
+			}
+			if (profile.getLanguages() != "") {
+
+				currentProfile.setLanguages(profile.getLanguages());
+
+			}
+			if (profile.getGendre() != "") {
+
+				currentProfile.setGendre(profile.getGendre());
+
+			}
+			if (profile.getHobbies() != "") {
+
+				currentProfile.setHobbies(profile.getHobbies());
+
+			}
+			if (profile.getDrinker() != "") {
+
+				currentProfile.setDrinker(profile.getDrinker());
+
+			}
+			if (profile.getSmoker() != "") {
+
+				currentProfile.setSmoker(profile.getSmoker());
+
+			}
+			if (profile.getWebsite() != "") {
+
+				currentProfile.setWebsite(profile.getWebsite());
+
+			}
+			if (profile.getGithub() != "") {
+
+				currentProfile.setGithub(profile.getGithub());
+
+			}
+			if (profile.getTwitter() != "") {
+
+				currentProfile.setTwitter(profile.getTwitter());
+
+			}
+			if (profile.getInstagram() != "") {
+
+				currentProfile.setInstagram(profile.getInstagram());
+
+			}
+			if (profile.getFacebook() != "") {
+
+				currentProfile.setFacebook(profile.getFacebook());
+
+			}
+			if (profile.getCountry() != "") {
+
+				currentProfile.setCountry(profile.getCountry());
+
+			}
+			if (profile.getState() != "") {
+
+				currentProfile.setState(profile.getState());
+
+			}
+			if (profile.getStreet() != "") {
+
+				currentProfile.setStreet(profile.getStreet());
+
+			}
+			if (profile.getZipcode() != "") {
+
+				currentProfile.setZipcode(profile.getZipcode());
+
+			}
+			if(profile.getAddress() != "") {
+				
+				currentProfile.setAddress(profile.getAddress());
+				
+			}
+			if (profile.getEmail() != "") {
+
+				currentProfile.setEmail(profile.getEmail());
+
+			}
+			if (profile.getNameoncard() != "") {
+
+				currentProfile.setNameoncard(profile.getNameoncard());
+
+			}
+			if (profile.getCardnumber() != "") {
+
+				currentProfile.setCardnumber(profile.getCardnumber());
+
+			}
+			if (profile.getExpirationdate() != "") {
+
+				currentProfile.setExpirationdate(profile.getExpirationdate());
+
+			}
+			profileService.save(currentProfile);
+			modelAndView.setViewName("redirect:/profile");
+
+		}
+
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "upload-profile-photo", method = RequestMethod.GET)
+	public ModelAndView photoUpload(ModelAndView modelAndView) {
+
+		modelAndView.setViewName("app.uploadProfilePhoto");
+
+		return modelAndView;
+	}
+
+	@RequestMapping(value = "upload-profile-photo", method = RequestMethod.POST)
+	public ModelAndView handlePhotoUpload(ModelAndView modelAndView, @RequestParam("file") MultipartFile file) {
+		modelAndView.setViewName("redirect:/profile");
+
+		Path outputFilePath = Paths.get(photoUploadDirectory, file.getOriginalFilename());
+
+		try {
+
+			Files.deleteIfExists(outputFilePath);
+			Files.copy(file.getInputStream(), outputFilePath);
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+		}
+
+		WebUser user = getUser();
+		Profile profile = profileService.findProfile(user);
+
+		profile.setAvatarURL("/avatar/" + file.getOriginalFilename());
+		profileService.save(profile);
+
+		return modelAndView;
+		
+	}
 }

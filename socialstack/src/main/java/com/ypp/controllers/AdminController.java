@@ -68,6 +68,7 @@ public class AdminController {
         modelAndView.setViewName("app.viewStatus");
 
         return modelAndView;
+        
     }
 
     @RequestMapping("/user-management")
@@ -80,6 +81,7 @@ public class AdminController {
         modelAndView.setViewName("app.user-management");
 
         return modelAndView;
+        
     }
 
     @RequestMapping(value="/changeauth", method = RequestMethod.GET)
@@ -94,6 +96,7 @@ public class AdminController {
         modelAndView.setViewName("redirect:/user-management");
 
         return modelAndView;
+        
     }
 
     @RequestMapping(value="/changerole", method = RequestMethod.GET)
@@ -112,5 +115,6 @@ public class AdminController {
 
         modelAndView.setViewName("redirect:/user-management");
         return modelAndView;
+        
     }
 }

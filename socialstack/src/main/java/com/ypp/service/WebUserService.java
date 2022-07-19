@@ -1,5 +1,8 @@
 package com.ypp.service;
 
+import java.util.List;
+import java.util.UUID;
+import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -8,13 +11,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.ypp.model.*;
-import java.util.List;
-import java.util.UUID;
+import com.ypp.model.TokenType;
+import com.ypp.model.VerificationToken;
+import com.ypp.model.VerificationTokenDao;
+import com.ypp.model.WebUser;
+import com.ypp.model.WebUserDao;
 
 @Service
+@Transactional
 public class WebUserService implements UserDetailsService {
-
 	
     @Autowired
     private WebUserDao webUserDao;
@@ -38,11 +43,19 @@ public class WebUserService implements UserDetailsService {
         webUserDao.save(user);
     }
 
-    public void save(WebUser user) {
+    public WebUser save(WebUser user) {
     	
-        webUserDao.save(user);
+    	
+        return webUserDao.save(user);
         
     }
+    
+	public WebUser createProduct(WebUser webUser) {
+		
+		webUser.setRole("ROLE_USER");
+		return webUserDao.save(webUser);
+	}
+
     
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {

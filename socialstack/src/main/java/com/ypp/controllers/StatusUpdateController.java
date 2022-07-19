@@ -145,8 +145,8 @@ public class StatusUpdateController {
         Map<Long, List<Comment>> postComments = new HashMap<>();
 
         posts.stream()
-                .forEach(statusUpdate -> {
-                    postComments.put(statusUpdate.getId(), commentService.getCommentsByPost(statusUpdate));
+                .forEach(statusUpdate -> {postComments.put(statusUpdate.getId(), 
+                		commentService.getCommentsByPost(statusUpdate));
                 });
 
         modelAndView.getModel().put("postComments", postComments);
@@ -154,22 +154,24 @@ public class StatusUpdateController {
         modelAndView.setViewName("app.viewStatus");
 
         return modelAndView;
+        
     }
 
     @RequestMapping("/mystatus")
     ModelAndView myStatus(ModelAndView modelAndView) {
 
         Profile profile = profileService.findProfile(getUser());
+       
         List<StatusUpdate> statuses = statusUpdateService.getByOwner(profile);
 
         modelAndView.getModel().put("statusUpdates", statuses);
 
         Map<Long, List<Comment>> postComments = new HashMap<>();
 
-        statuses.stream()
-                .forEach(statusUpdate -> {
-                    postComments.put(statusUpdate.getId(), commentService.getCommentsByPost(statusUpdate));
-                });
+        statuses.stream().forEach(statusUpdate -> { 
+        	postComments.put(statusUpdate.getId(), 
+        	commentService.getCommentsByPost(statusUpdate));
+        	});
 
         modelAndView.getModel().put("postComments", postComments);
 
@@ -177,6 +179,7 @@ public class StatusUpdateController {
         modelAndView.setViewName("app.myStatus");
 
         return modelAndView;
+        
     }
 
     @RequestMapping(value="/add-img-to-status/{id}")
@@ -196,11 +199,13 @@ public class StatusUpdateController {
         modelAndView.getModel().put("id", id);
         modelAndView.setViewName("app.addImgToStatus");
         return  modelAndView;
+   
     }
 
     @RequestMapping(value = "/add-img-to-status", method=RequestMethod.POST)
     public ModelAndView addImage(ModelAndView modelAndView, @RequestParam("file") MultipartFile file, @RequestParam("id") Long id) {
-        modelAndView.setViewName("redirect:/mystatus");
+        
+    	modelAndView.setViewName("redirect:/mystatus");
 
         Path outputFilePath = Paths.get(photoUploadDirectory, file.getOriginalFilename());
 
@@ -218,10 +223,12 @@ public class StatusUpdateController {
         statusUpdateService.save(statusUpdate);
 
         return modelAndView;
+    
     }
 
     @RequestMapping(value="/delete-status-img/{id}")
     ModelAndView deleteImg(ModelAndView modelAndView, @PathVariable("id") Long id) {
+    	
         WebUser user = getUser();
         StatusUpdate statusUpdate = statusUpdateService.getStatus(id);
         Long ownerId = statusUpdate.getOwner().getUser().getId();
@@ -229,8 +236,10 @@ public class StatusUpdateController {
         modelAndView.setViewName("redirect:/mystatus");
 
         if (user.getId() == ownerId) {
+        	
             statusUpdate.setImgURL(null);
             statusUpdateService.save(statusUpdate);
+            
         }
 
         return modelAndView;
