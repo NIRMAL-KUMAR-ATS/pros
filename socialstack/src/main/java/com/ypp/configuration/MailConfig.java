@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
-
 @Configuration
 public class MailConfig {
 
@@ -24,12 +23,14 @@ public class MailConfig {
 
     @Bean
     public JavaMailSender mailSender() {
-        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+    
+    	JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 
         mailSender.setHost(host);
         mailSender.setPort(port);
         mailSender.setUsername(user);
         mailSender.setPassword(password);
-        return mailSender;    
+        return mailSender;   
+        
     }
 }

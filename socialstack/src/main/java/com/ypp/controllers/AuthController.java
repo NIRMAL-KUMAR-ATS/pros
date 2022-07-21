@@ -2,10 +2,8 @@ package com.ypp.controllers;
 
 import java.util.Collections;
 import java.util.Date;
-
 import javax.management.relation.Role;
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -21,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.ypp.model.Profile;
 import com.ypp.model.VerificationToken;
 import com.ypp.model.WebUser;
@@ -66,7 +63,7 @@ public class AuthController {
 
         modelAndView.getModel().put("user", user);
 
-       // modelAndView.setViewName("app.register");
+       modelAndView.setViewName("app.register");
 
         return modelAndView;
 
@@ -74,16 +71,12 @@ public class AuthController {
 
     @RequestMapping(value="/register", method= RequestMethod.POST, produces = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
    // @PostMapping(value = "/register")
-   @ResponseBody
+  // @ResponseBody
     public ModelAndView register (Object model ,ModelAndView modelAndView, @ModelAttribute(value="user") @Valid WebUser user, BindingResult result) {
 
-//    	
-    	ModelAndView mav = new ModelAndView(); 
-    	mav.addObject("key1", "value1"); 
-    	mav.addObject("key2", "value2");
-//    	
+	
     	
-       // modelAndView.setViewName("app.register");
+       modelAndView.setViewName("app.register");
 
         if(!result.hasErrors()) {
 
@@ -96,7 +89,7 @@ public class AuthController {
 
             emailService.sendVerificationEmail(user.getEmail(), user.getUsername(), token);
 
-          //  modelAndView.setViewName("redirect:/verify");
+           modelAndView.setViewName("redirect:/verify");
         }
         
         return modelAndView;
@@ -108,15 +101,6 @@ public class AuthController {
         //new ResponseEntity<>("{\"status\" : \"UP\"}", HttpStatus.OK);
     
     }
-    
-    @PostMapping("/products")
-	public ResponseEntity<WebUser> createProduct(@RequestBody WebUser webUser){
-    	
-		return ResponseEntity.ok().body(this.webUserService.save(webUser));
-				//productService.createProduct(product));
-	}
-    
- 
     
 //    public ModelAndView userAccount(ModelAndView modelAndView ,@ModelAttribute(value="useraccount") @Valid WebUser user, BindingResult result) {
 //    	
@@ -130,22 +114,24 @@ public class AuthController {
 //		return modelAndView;
 //		
 //    }
-
+    
     @RequestMapping("/verify")
     String verify() {
+    	
         return "app.verify";
+        
     }
 
     @RequestMapping("/confirmregister" )
     ModelAndView registration(ModelAndView modelAndView, @RequestParam("t") String tokenString) {
 
         VerificationToken token = webUserService.getVerification(tokenString);
-//        System.out.println(tokenString);
-//        System.out.println("token is null?: " + token);
+        System.out.println(tokenString);
+        System.out.println("token is null?: " + token);
 
         if (token == null) {
             modelAndView.setViewName("redirect:/invaliduser");
-//          System.out.println("token still not deleted");
+          System.out.println("token still not deleted");
             return modelAndView;
             
         }
@@ -154,7 +140,7 @@ public class AuthController {
         if (expiryDate.before(new Date())) {
             modelAndView.setViewName("redirect:/expiredtoken");
             
-//            System.out.println("token deleted");
+            System.out.println("token deleted");
             
             webUserService.deleteToken(token);
             return modelAndView;

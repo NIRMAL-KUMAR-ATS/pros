@@ -1,6 +1,5 @@
 package com.ypp.controllers;
 
-
 import com.ypp.model.Comment;
 import com.ypp.model.Profile;
 import com.ypp.model.StatusUpdate;

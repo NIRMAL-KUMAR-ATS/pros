@@ -1,24 +1,28 @@
 package com.ypp.controllers;
 
-import com.ypp.model.Profile;
-import com.ypp.model.WebUser;
-import com.ypp.service.ProfileService;
-import com.ypp.service.StatusUpdateService;
-import com.ypp.service.WebUserService;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import javax.validation.Valid;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import com.ypp.model.Profile;
+import com.ypp.model.WebUser;
+import com.ypp.service.ProfileService;
+import com.ypp.service.StatusUpdateService;
+import com.ypp.service.WebUserService;
 
 @Controller
 public class ProfileController {
@@ -49,17 +53,28 @@ public class ProfileController {
 		ModelAndView modelAndView = new ModelAndView();
 
 		if (user == null) {
+			
 			modelAndView.setViewName("redirect:/");
+			
 			return modelAndView;
+			
 		}
 
 		Profile profile = profileService.findProfile(user);
 		modelAndView.getModel().put("profile", profile);
 
 		modelAndView.setViewName("app.profile");
+		
+//		modelAndView.setViewName(app.get("/web/:value", async (req, res) => 
+//		{  value = req.param; 
+//		   response = await fetch(`{value}`);
+//		   data = response.json();
+//		      res.json(data);
+//		}));
+		
 		modelAndView.getModel().put("user", getUser());
 		return modelAndView;
-
+		
 	}
 
 	@RequestMapping(value = "/profile")

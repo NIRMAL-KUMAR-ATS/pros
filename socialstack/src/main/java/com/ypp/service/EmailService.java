@@ -32,13 +32,6 @@ public class EmailService {
             mailSender.send(preparator);
         }
     }
-    
-//    private void sendMail(MimeMessage mimeMessage) {
-//    	
-//    	if(enable) {
-//    		mailSender.send(mimeMessage);
-//    	}
-//    }
 
     @Autowired
     public EmailService(TemplateEngine templateEngine) {
@@ -52,6 +45,7 @@ public class EmailService {
         templateEngine.setTemplateResolver(templateResolver);
 
         this.templateEngine = templateEngine;
+        
     }
 
     public void sendVerificationEmail(String emailAddress, String username, String token) {

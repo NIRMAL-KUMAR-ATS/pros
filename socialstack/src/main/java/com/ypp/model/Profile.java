@@ -18,7 +18,6 @@ public class Profile {
     private String about;
 
     String address;
-
     String avatarURL;
     String phone;
     String fullname;
@@ -38,7 +37,6 @@ public class Profile {
 	String twitter;
 	String instagram;
 	String facebook;
-	String changePassword;
 	
 	String country;
 	String state;
@@ -237,15 +235,6 @@ public class Profile {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
-
-	public String getChangePassword() {
-		return changePassword;
-	}
-
-	public void setChangePassword(String changePassword) {
-		this.changePassword = changePassword;
-	}
-
 	public String getCountry() {
 		return country;
 	}
