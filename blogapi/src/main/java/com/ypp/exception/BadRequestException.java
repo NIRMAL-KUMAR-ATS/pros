@@ -9,6 +9,7 @@ import com.ypp.payload.ApiResponse;
 public class BadRequestException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
+	
 	private ApiResponse apiResponse;
 
 	public BadRequestException(ApiResponse apiResponse) {

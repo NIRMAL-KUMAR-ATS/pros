@@ -28,6 +28,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/posts/{postId}/comments")
 public class CommentController {
+	
 	@Autowired
 	private CommentService commentService;
 

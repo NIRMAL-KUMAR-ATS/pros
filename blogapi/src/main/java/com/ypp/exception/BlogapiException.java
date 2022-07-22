@@ -9,6 +9,7 @@ public class BlogapiException extends RuntimeException {
 	private final HttpStatus status;
 	private final String message;
 
+	
 	public BlogapiException(HttpStatus status, String message) {
 		super();
 		this.status = status;

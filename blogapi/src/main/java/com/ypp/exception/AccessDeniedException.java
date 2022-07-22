@@ -7,6 +7,7 @@ import com.ypp.payload.ApiResponse;
 
 @ResponseStatus(code = HttpStatus.UNAUTHORIZED)
 public class AccessDeniedException extends RuntimeException {
+	
 	private static final long serialVersionUID = 1L;
 
 	private ApiResponse apiResponse;

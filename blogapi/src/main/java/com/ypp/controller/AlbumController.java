@@ -37,6 +37,7 @@ public class AlbumController {
 	@Autowired
 	private AlbumService albumService;
 
+	
 	@Autowired
 	private PhotoService photoService;
 

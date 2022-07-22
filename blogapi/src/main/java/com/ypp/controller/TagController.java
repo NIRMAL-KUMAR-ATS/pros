@@ -27,6 +27,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/tags")
 public class TagController {
+	
 	@Autowired
 	private TagService tagService;
 

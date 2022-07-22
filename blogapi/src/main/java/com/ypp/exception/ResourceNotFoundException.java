@@ -15,6 +15,7 @@ public class ResourceNotFoundException extends RuntimeException {
 	private String fieldName;
 	private Object fieldValue;
 
+	
 	public ResourceNotFoundException(String resourceName, String fieldName, Object fieldValue) {
 		super();
 		this.resourceName = resourceName;

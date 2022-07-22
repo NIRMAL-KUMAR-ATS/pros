@@ -28,6 +28,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/photos")
 public class PhotoController {
+	
 	@Autowired
 	private PhotoService photoService;
 

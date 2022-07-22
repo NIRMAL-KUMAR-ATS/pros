@@ -29,6 +29,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("/api/posts")
 public class PostController {
+	
 	@Autowired
 	private PostService postService;
 

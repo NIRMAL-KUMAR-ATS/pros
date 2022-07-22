@@ -26,6 +26,7 @@ public class RestControllerExceptionHandler {
 		String message = exception.getMessage();
 		HttpStatus status = exception.getStatus();
 
+		
 		ApiResponse apiResponse = new ApiResponse();
 
 		apiResponse.setSuccess(Boolean.FALSE);

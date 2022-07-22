@@ -37,6 +37,7 @@ import java.util.List;
 public class AuthController {
 	private static final String USER_ROLE_NOT_SET = "User role not set";
 
+	
 	@Autowired
 	private AuthenticationManager authenticationManager;
 
