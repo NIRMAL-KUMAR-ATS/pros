@@ -12,6 +12,7 @@ import java.util.List;
 
 @Data
 public class AlbumRequest extends UserDateAuditPayload {
+	
 
 	private Long id;
 

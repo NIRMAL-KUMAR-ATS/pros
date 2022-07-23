@@ -40,6 +40,7 @@ import java.util.List;
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = { "username" }),
 		@UniqueConstraint(columnNames = { "email" }) })
 public class User extends DateAudit {
+	
 	private static final long serialVersionUID = 1L;
 
 	@Id

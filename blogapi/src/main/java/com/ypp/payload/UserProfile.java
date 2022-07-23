@@ -13,6 +13,7 @@ import com.ypp.model.user.Company;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserProfile {
+	
 	private Long id;
 	private String username;
 	private String firstName;

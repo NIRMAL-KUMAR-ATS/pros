@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import com.ypp.exception.BlogapiException;
 
 public class AppUtils {
+	
 	public static void validatePageNumberAndSize(int page, int size) {
 		if (page < 0) {
 			throw new BlogapiException(HttpStatus.BAD_REQUEST, "Page number cannot be less than zero.");

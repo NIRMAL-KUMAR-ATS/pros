@@ -40,7 +40,9 @@ public class CommentController {
 		PagedResponse<Comment> allComments = commentService.getAllComments(postId, page, size);
 
 		return new ResponseEntity< >(allComments, HttpStatus.OK);
+		
 	}
+	
 
 	@PostMapping
 	@PreAuthorize("hasRole('USER')")

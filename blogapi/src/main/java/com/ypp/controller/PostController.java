@@ -40,6 +40,7 @@ public class PostController {
 		PagedResponse<Post> response = postService.getAllPosts(page, size);
 
 		return new ResponseEntity< >(response, HttpStatus.OK);
+		
 	}
 
 	@GetMapping("/category/{id}")

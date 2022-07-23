@@ -8,6 +8,7 @@ import java.util.List;
 
 @Data
 public class PostResponse {
+	
 	private String title;
 	private String body;
 	private String category;

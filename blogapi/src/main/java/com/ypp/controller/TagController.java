@@ -39,6 +39,7 @@ public class TagController {
 		PagedResponse<Tag> response = tagService.getAllTags(page, size);
 
 		return new ResponseEntity< >(response, HttpStatus.OK);
+		
 	}
 
 	@PostMapping

@@ -31,6 +31,7 @@ public class Photo extends UserDateAudit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 
 	@NotBlank
 	@Column(name = "title")

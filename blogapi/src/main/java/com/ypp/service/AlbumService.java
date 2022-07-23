@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface AlbumService {
 
+	
 	PagedResponse<AlbumResponse> getAllAlbums(int page, int size);
 
 	ResponseEntity<Album> addAlbum(AlbumRequest albumRequest, UserPrincipal currentUser);

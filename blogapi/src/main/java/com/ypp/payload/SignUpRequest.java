@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 
 @Data
 public class SignUpRequest {
+	
 	@NotBlank
 	@Size(min = 4, max = 40)
 	private String firstName;

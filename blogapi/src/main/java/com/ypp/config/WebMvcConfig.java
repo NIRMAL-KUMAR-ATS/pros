@@ -21,4 +21,5 @@ public class WebMvcConfig implements WebMvcConfigurer {
 				.allowedHeaders("*")
 				.maxAge(MAX_AGE_SECS);
 	}
+	
 }

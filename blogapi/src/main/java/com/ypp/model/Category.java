@@ -25,6 +25,7 @@ import java.util.List;
 @Table(name = "categories")
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Category extends UserDateAudit {
+	
 	private static final long serialVersionUID = 1L;
 
 	
@@ -34,6 +35,7 @@ public class Category extends UserDateAudit {
 
 	@Column(name = "name")
 	private String name;
+	
 
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Post> posts;
@@ -54,5 +56,4 @@ public class Category extends UserDateAudit {
 			this.posts = Collections.unmodifiableList(posts);
 		}
 	}
-
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Data
 public class ExceptionResponse {
+	
 	private String error;
 	private Integer status;
 	private List<String> messages;

@@ -91,6 +91,7 @@ public class UserController {
 		PagedResponse<Album> response = albumService.getUserAlbums(username, page, size);
 
 		return new ResponseEntity<  >(response, HttpStatus.OK);
+		
 	}
 
 	@PostMapping

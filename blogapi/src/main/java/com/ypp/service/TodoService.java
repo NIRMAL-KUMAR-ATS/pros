@@ -7,6 +7,7 @@ import com.ypp.security.UserPrincipal;
 
 public interface TodoService {
 
+	
 	Todo completeTodo(Long id, UserPrincipal currentUser);
 
 	Todo unCompleteTodo(Long id, UserPrincipal currentUser);

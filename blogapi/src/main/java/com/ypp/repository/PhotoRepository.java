@@ -9,5 +9,6 @@ import com.ypp.model.Photo;
 
 @Repository
 public interface PhotoRepository extends JpaRepository<Photo, Long> {
+	
 	Page<Photo> findByAlbumId(Long albumId, Pageable pageable);
 }

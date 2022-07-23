@@ -34,6 +34,7 @@ public class Comment extends UserDateAudit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    
     @Column(name = "name")
     @NotBlank
     @Size(min = 4, max = 50)

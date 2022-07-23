@@ -17,6 +17,7 @@ public class AccessDeniedException extends RuntimeException {
 	public AccessDeniedException(ApiResponse apiResponse) {
 		super();
 		this.apiResponse = apiResponse;
+		
 	}
 
 	public AccessDeniedException(String message) {

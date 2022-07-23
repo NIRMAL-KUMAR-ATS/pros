@@ -134,6 +134,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public ApiResponse giveAdmin(String username) {
+		
 		User user = userRepository.getUserByName(username);
 		List<Role> roles = new ArrayList<>();
 		roles.add(roleRepository.findByName(RoleName.ROLE_ADMIN)

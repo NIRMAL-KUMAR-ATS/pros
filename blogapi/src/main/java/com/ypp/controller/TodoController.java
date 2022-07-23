@@ -40,6 +40,7 @@ public class TodoController {
 			@RequestParam(name = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size) {
 
 		PagedResponse<Todo> response = todoService.getAllTodos(currentUser, page, size);
+		
 
 		return new ResponseEntity< >(response, HttpStatus.OK);
 	}

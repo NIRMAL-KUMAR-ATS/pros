@@ -30,6 +30,7 @@ public class Address extends UserDateAudit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 
 	@Column(name = "street")
 	private String street;

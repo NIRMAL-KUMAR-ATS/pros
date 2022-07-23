@@ -8,6 +8,7 @@ import com.ypp.security.UserPrincipal;
 
 public interface PhotoService {
 
+	
 	PagedResponse<PhotoResponse> getAllPhotos(int page, int size);
 
 	PhotoResponse getPhoto(Long id);

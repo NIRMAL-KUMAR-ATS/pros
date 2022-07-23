@@ -33,6 +33,7 @@ public class RestControllerExceptionHandler {
 		apiResponse.setMessage(message);
 
 		return new ResponseEntity<>(apiResponse, status);
+		
 	}
 
 	@ExceptionHandler(UnauthorizedException.class)

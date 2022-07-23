@@ -16,5 +16,6 @@ public class ResponseEntityErrorException extends RuntimeException {
 	
 	public ResponseEntity<ApiResponse> getApiResponse() {
 		return apiResponse;
+		
 	}
 }

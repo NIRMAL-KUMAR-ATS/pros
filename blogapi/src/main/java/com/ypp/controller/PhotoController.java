@@ -37,6 +37,7 @@ public class PhotoController {
 			@RequestParam(name = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
 			@RequestParam(name = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size) {
 		return photoService.getAllPhotos(page, size);
+		
 	}
 
 	@PostMapping

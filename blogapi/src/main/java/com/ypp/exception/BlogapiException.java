@@ -14,6 +14,7 @@ public class BlogapiException extends RuntimeException {
 		super();
 		this.status = status;
 		this.message = message;
+		
 	}
 
 	public BlogapiException(HttpStatus status, String message, Throwable exception) {

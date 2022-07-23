@@ -22,6 +22,7 @@ public class PostRequest {
 
 	@NotNull
 	private Long categoryId;
+	
 
 	private List<String> tags;
 

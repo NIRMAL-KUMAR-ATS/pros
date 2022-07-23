@@ -34,6 +34,7 @@ public class Todo extends UserDateAudit {
 	@NotBlank
 	@Column(name = "title")
 	private String title;
+	
 
 	@Column(name = "completed")
 	private Boolean completed;

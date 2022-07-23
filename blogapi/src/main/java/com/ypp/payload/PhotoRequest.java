@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 
 @Data
 public class PhotoRequest {
+	
 
 	@NotBlank
 	@Size(min = 3)

@@ -27,6 +27,7 @@ public class Company extends UserDateAudit {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 
 	@Column(name = "name")
 	private String name;

@@ -10,6 +10,7 @@ import com.ypp.security.UserPrincipal;
 
 public interface UserService {
 
+	
 	UserSummary getCurrentUser(UserPrincipal currentUser);
 
 	UserIdentityAvailability checkUsernameAvailability(String username);

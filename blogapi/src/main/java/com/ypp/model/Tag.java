@@ -38,6 +38,7 @@ public class Tag extends UserDateAudit {
 
 	@Column(name = "name")
 	private String name;
+	
 
 	@JsonIgnore
 	@ManyToMany(fetch = FetchType.EAGER)

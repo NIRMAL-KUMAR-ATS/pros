@@ -5,6 +5,7 @@ import com.ypp.exception.ResourceNotFoundException;
 import com.ypp.exception.UnauthorizedException;
 import com.ypp.model.Category;
 import com.ypp.model.Post;
+import com.ypp.model.Posts;
 import com.ypp.model.Tag;
 import com.ypp.model.role.RoleName;
 import com.ypp.model.user.User;
@@ -39,6 +40,8 @@ import static com.ypp.utils.AppConstants.USER;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import javax.validation.Valid;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -187,6 +190,7 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public Post getPost(Long id) {
+		
 		return postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(POST, ID, id));
 	}
 

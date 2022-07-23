@@ -3,10 +3,8 @@ package com.ypp.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ypp.model.audit.UserDateAudit;
 import com.ypp.model.user.User;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,14 +27,13 @@ import java.util.List;
 @Data
 @Table(name = "albums", uniqueConstraints = { @UniqueConstraint(columnNames = { "title" }) })
 public class Album extends UserDateAudit {
+
 	private static final long serialVersionUID = 1L;
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank
 	@Column(name = "title")
 	private String title;
 
@@ -62,5 +59,6 @@ public class Album extends UserDateAudit {
 		} else {
 			this.photo = Collections.unmodifiableList(photo);
 		}
+		
 	}
 }

@@ -16,6 +16,7 @@ import java.util.List;
 @Data
 @JsonInclude(Include.NON_NULL)
 public class AlbumResponse extends UserDateAuditPayload {
+	
 	private Long id;
 
 	private String title;

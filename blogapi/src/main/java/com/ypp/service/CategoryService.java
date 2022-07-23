@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 
 public interface CategoryService {
 
+	
 	PagedResponse<Category> getAllCategories(int page, int size);
 
 	ResponseEntity<Category> getCategory(Long id);

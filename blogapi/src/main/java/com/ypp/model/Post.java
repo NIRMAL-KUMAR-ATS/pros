@@ -35,7 +35,6 @@ import java.util.List;
 public class Post extends UserDateAudit {
 	private static final long serialVersionUID = 1L;
 
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -50,6 +49,7 @@ public class Post extends UserDateAudit {
 	@JoinColumn(name = "user_id")
 	private User user;
 
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;

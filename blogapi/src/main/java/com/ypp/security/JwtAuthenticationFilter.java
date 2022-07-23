@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+	
 	private static final Logger LOGGER = LoggerFactory.getLogger(JwtAuthenticationFilter.class);
 	@Autowired
 	private JwtTokenProvider tokenProvider;

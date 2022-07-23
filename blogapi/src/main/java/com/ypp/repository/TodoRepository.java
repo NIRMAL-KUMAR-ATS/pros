@@ -9,5 +9,6 @@ import com.ypp.model.Todo;
 
 @Repository
 public interface TodoRepository extends JpaRepository<Todo, Long> {
+	
 	Page<Todo> findByCreatedBy(Long userId, Pageable pageable);
 }

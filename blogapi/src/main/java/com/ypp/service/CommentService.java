@@ -8,6 +8,7 @@ import com.ypp.security.UserPrincipal;
 
 public interface CommentService {
 
+	
 	PagedResponse<Comment> getAllComments(Long postId, int page, int size);
 
 	Comment addComment(CommentRequest commentRequest, Long postId, UserPrincipal currentUser);

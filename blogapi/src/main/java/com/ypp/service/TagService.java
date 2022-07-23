@@ -7,6 +7,7 @@ import com.ypp.security.UserPrincipal;
 
 public interface TagService {
 
+	
 	PagedResponse<Tag> getAllTags(int page, int size);
 
 	Tag getTag(Long id);
