@@ -63,7 +63,7 @@ public class PostController {
 		return new ResponseEntity< >(response, HttpStatus.OK);
 	}
 
-	@PostMapping
+	@PostMapping("/post")
 	@PreAuthorize("hasRole('USER')")
 	public ResponseEntity<PostResponse> addPost(@Valid @RequestBody PostRequest postRequest,
 			@CurrentUser UserPrincipal currentUser) {
@@ -86,6 +86,7 @@ public class PostController {
 		Post post = postService.updatePost(id, newPostRequest, currentUser);
 
 		return new ResponseEntity< >(post, HttpStatus.OK);
+		
 	}
 
 	@DeleteMapping("/{id}")

@@ -1,8 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/yppprojectapi?zeroDateTimeBehavior=convertToNull
+    url: jdbc:mysql://localhost:3306/yppprojectapi?autoReconnect=true&useSSL=false
     username: root
     password: root
+    
   jpa:
     hibernate:
       ddl-auto: none
@@ -23,3 +24,4 @@ cors:
   
 server:
   port: 8181
+  

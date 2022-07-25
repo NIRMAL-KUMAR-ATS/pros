@@ -155,6 +155,7 @@ public class UserServiceImpl implements UserService {
 		user.setRoles(roles);
 		userRepository.save(user);
 		return new ApiResponse(Boolean.TRUE, "You took ADMIN role from user: " + username);
+	
 	}
 
 	@Override
@@ -184,4 +185,6 @@ public class UserServiceImpl implements UserService {
 		ApiResponse apiResponse = new ApiResponse(Boolean.FALSE, "You don't have permission to update users profile", HttpStatus.FORBIDDEN);
 		throw new AccessDeniedException(apiResponse);
 	}
+
+	
 }

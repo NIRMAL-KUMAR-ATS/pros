@@ -21,8 +21,11 @@ public class UserProfile {
 	private Instant joinedAt;
 	private String email;
 	private Address address;
+	//private String followerCount;
+	//private String followingCount;
 	private String phone;
 	private String website;
 	private Company company;
 	private Long postCount;
+	
 }

@@ -11,6 +11,7 @@ import com.ypp.security.JwtAuthenticationFilter;
 import javax.annotation.PostConstruct;
 import java.util.TimeZone;
 
+
 @SpringBootApplication
 @EntityScan(basePackageClasses = {BlogApiApplication.class, Jsr310Converters.class })
 @ComponentScan
@@ -32,8 +33,7 @@ public class BlogApiApplication {
 	@Bean
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		
-		return new JwtAuthenticationFilter();
-		
+		return new JwtAuthenticationFilter();	
 	}
 
 	@Bean
@@ -42,5 +42,4 @@ public class BlogApiApplication {
 		return new ModelMapper();
 		
 	}
-	
 }

@@ -1,7 +1,6 @@
 package com.ypp.payload;
 
 import lombok.Data;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,8 +12,6 @@ public class PostResponse {
 	private String body;
 	private String category;
 	private List<String> tags;
-
-
 
 	public List<String> getTags() {
 

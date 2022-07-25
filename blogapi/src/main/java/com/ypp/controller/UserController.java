@@ -52,6 +52,7 @@ public class UserController {
 		UserSummary userSummary = userService.getCurrentUser(currentUser);
 
 		return new ResponseEntity< >(userSummary, HttpStatus.OK);
+	
 	}
 
 	@GetMapping("/checkUsernameAvailability")
@@ -59,12 +60,14 @@ public class UserController {
 		UserIdentityAvailability userIdentityAvailability = userService.checkUsernameAvailability(username);
 
 		return new ResponseEntity< >(userIdentityAvailability, HttpStatus.OK);
+	
 	}
 
 	@GetMapping("/checkEmailAvailability")
 	public ResponseEntity<UserIdentityAvailability> checkEmailAvailability(@RequestParam(value = "email") String email) {
 		UserIdentityAvailability userIdentityAvailability = userService.checkEmailAvailability(email);
 		return new ResponseEntity< >(userIdentityAvailability, HttpStatus.OK);
+	
 	}
 
 	@GetMapping("/{username}/profile")
@@ -72,6 +75,7 @@ public class UserController {
 		UserProfile userProfile = userService.getUserProfile(username);
 
 		return new ResponseEntity< >(userProfile, HttpStatus.OK);
+	
 	}
 
 	@GetMapping("/{username}/posts")
@@ -81,6 +85,7 @@ public class UserController {
 		PagedResponse<Post> response = postService.getPostsByCreatedBy(username, page, size);
 
 		return new ResponseEntity<  >(response, HttpStatus.OK);
+	
 	}
 
 	@GetMapping("/{username}/albums")
@@ -100,6 +105,7 @@ public class UserController {
 		User newUser = userService.addUser(user);
 
 		return new ResponseEntity< >(newUser, HttpStatus.CREATED);
+	
 	}
 
 	@PutMapping("/{username}")
@@ -108,8 +114,7 @@ public class UserController {
 			@PathVariable(value = "username") String username, @CurrentUser UserPrincipal currentUser) {
 		User updatedUSer = userService.updateUser(newUser, username, currentUser);
 
-		return new ResponseEntity< >(updatedUSer, HttpStatus.CREATED);
-		
+		return new ResponseEntity< >(updatedUSer, HttpStatus.CREATED);	
 	}
 	
 	@DeleteMapping("/{username}")
@@ -119,6 +124,7 @@ public class UserController {
 		ApiResponse apiResponse = userService.deleteUser(username, currentUser);
 
 		return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+	
 	}
 
 	@PutMapping("/{username}/giveAdmin")
@@ -127,6 +133,7 @@ public class UserController {
 		ApiResponse apiResponse = userService.giveAdmin(username);
 
 		return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+	
 	}
 
 	@PutMapping("/{username}/takeAdmin")
@@ -135,6 +142,7 @@ public class UserController {
 		ApiResponse apiResponse = userService.removeAdmin(username);
 
 		return new ResponseEntity< >(apiResponse, HttpStatus.OK);
+	
 	}
 
 	@PutMapping("/setOrUpdateInfo")
@@ -144,6 +152,6 @@ public class UserController {
 		UserProfile userProfile = userService.setOrUpdateInfo(currentUser, infoRequest);
 
 		return new ResponseEntity< >(userProfile, HttpStatus.OK);
+	
 	}
-
 }
