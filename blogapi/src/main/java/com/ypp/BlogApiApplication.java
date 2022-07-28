@@ -1,19 +1,21 @@
 package com.ypp;
 
+import java.util.TimeZone;
+import javax.annotation.PostConstruct;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.convert.Jsr310Converters;
 import com.ypp.security.JwtAuthenticationFilter;
-import javax.annotation.PostConstruct;
-import java.util.TimeZone;
-
 
 @SpringBootApplication
 @EntityScan(basePackageClasses = {BlogApiApplication.class, Jsr310Converters.class })
+@ComponentScan
+@EnableAutoConfiguration
 @ComponentScan
 public class BlogApiApplication {
 
@@ -34,6 +36,7 @@ public class BlogApiApplication {
 	public JwtAuthenticationFilter jwtAuthenticationFilter() {
 		
 		return new JwtAuthenticationFilter();	
+		
 	}
 
 	@Bean

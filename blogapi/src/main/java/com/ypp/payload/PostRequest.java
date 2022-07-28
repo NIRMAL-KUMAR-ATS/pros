@@ -20,8 +20,7 @@ public class PostRequest {
 	private String body;
 
 	@NotNull
-	private Long categoryId;
-	
+	private Long category_id;
 
 	private List<String> tags;
 

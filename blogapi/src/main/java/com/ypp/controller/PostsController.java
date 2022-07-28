@@ -4,6 +4,7 @@ import java.awt.print.Pageable;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,14 +31,14 @@ private PostRepository postRepository;
 
 @Autowired
 private PostService postService;
-	
-@GetMapping("/postes")
- List<Post> getAllPosts(@RequestParam(value = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
-		@RequestParam(value = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size) {
-PagedResponse<Post> response = postService.getAllPosts(page, size);
-   return postRepository.findAll();    
-   
-}
+
+//	
+//@GetMapping("/postes")
+// List<Post> getAllPosts(@RequestParam(value = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
+//		@RequestParam(value = "size", required = false, defaultValue = AppConstants.DEFAULT_PAGE_SIZE) Integer size) {
+//PagedResponse<Post> response = postService.getAllPosts(page, size);
+//   return postRepository.findAll();    
+//   
 
 //
 //@GetMapping
@@ -55,6 +56,7 @@ public Posts createPost(@Valid @RequestBody Posts posts) {
     return postRepository.save(posts);
     
 }
+
 //
 //@PutMapping("/post/{postId}")
 //public Posts updatePost(@PathVariable Long id, @Valid @RequestBody Posts postRequest) {

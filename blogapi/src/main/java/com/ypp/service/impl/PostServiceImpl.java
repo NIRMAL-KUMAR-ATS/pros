@@ -5,7 +5,6 @@ import com.ypp.exception.ResourceNotFoundException;
 import com.ypp.exception.UnauthorizedException;
 import com.ypp.model.Category;
 import com.ypp.model.Post;
-import com.ypp.model.Posts;
 import com.ypp.model.Tag;
 import com.ypp.model.role.RoleName;
 import com.ypp.model.user.User;
@@ -118,13 +117,13 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public Post updatePost(Long id, PostRequest newPostRequest, UserPrincipal currentUser) {
 		Post post = postRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(POST, ID, id));
-		Category category = categoryRepository.findById(newPostRequest.getCategoryId())
-				.orElseThrow(() -> new ResourceNotFoundException(CATEGORY, ID, newPostRequest.getCategoryId()));
+		Category category = categoryRepository.findById(newPostRequest.getCategory_id())
+				.orElseThrow(() -> new ResourceNotFoundException(CATEGORY, ID, newPostRequest.getCategory_id()));
 		if (post.getUser().getId().equals(currentUser.getId())
 				|| currentUser.getAuthorities().contains(new SimpleGrantedAuthority(RoleName.ROLE_ADMIN.toString()))) {
 			post.setTitle(newPostRequest.getTitle());
 			post.setBody(newPostRequest.getBody());
-			post.setCategory(category);
+			//post.setCategory(category);
 			return postRepository.save(post);
 		}
 		ApiResponse apiResponse = new ApiResponse(Boolean.FALSE, "You don't have permission to edit this post");
@@ -150,8 +149,8 @@ public class PostServiceImpl implements PostService {
 	public PostResponse addPost(PostRequest postRequest, UserPrincipal currentUser) {
 		User user = userRepository.findById(currentUser.getId())
 				.orElseThrow(() -> new ResourceNotFoundException(USER, ID, 1L));
-		Category category = categoryRepository.findById(postRequest.getCategoryId())
-				.orElseThrow(() -> new ResourceNotFoundException(CATEGORY, ID, postRequest.getCategoryId()));
+		Category category = categoryRepository.findById(postRequest.getCategory_id())
+				.orElseThrow(() -> new ResourceNotFoundException(CATEGORY, ID, postRequest.getCategory_id()));
 
 		List<Tag> tags = new ArrayList<>(postRequest.getTags().size());
 

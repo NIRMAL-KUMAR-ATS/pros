@@ -1,6 +1,5 @@
 package com.ypp.controller;
 
-import com.mysql.cj.callback.UsernameCallback;
 import com.ypp.model.Album;
 import com.ypp.model.Post;
 import com.ypp.model.user.User;
@@ -154,4 +153,13 @@ public class UserController {
 		return new ResponseEntity< >(userProfile, HttpStatus.OK);
 	
 	}
+	
+//	@PostMapping
+//	@PreAuthorize("hasRole('ADMIN')")
+//	public ResponseEntity<BillingDetails> addBillingDetails(@Valid @RequestBody BillingDetails billingDetails) {
+//		BillingDetails newBilling = userService.addBillingDetails(billingDetails);
+//
+//		return new ResponseEntity< >(newBilling, HttpStatus.CREATED);
+//	
+//	}
 }

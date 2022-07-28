@@ -1,6 +1,7 @@
 package com.ypp.service.impl;
 
 import com.ypp.exception.AccessDeniedException;
+
 import com.ypp.exception.AppException;
 import com.ypp.exception.BadRequestException;
 import com.ypp.exception.ResourceNotFoundException;
@@ -94,6 +95,29 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userRepository.save(user);
 	}
+
+//	
+//	@Override
+//	public BillingDetails addBillingDetails(BillingDetails billingDetails) {
+////		
+////		if (userRepository.existsByUsername(user.getUsername())) {
+////			ApiResponse apiResponse = new ApiResponse(Boolean.FALSE, "Username is already taken");
+////			throw new BadRequestException(apiResponse);
+////		}
+////
+////		if (userRepository.existsByEmail(user.getEmail())) {
+////			ApiResponse apiResponse = new ApiResponse(Boolean.FALSE, "Email is already taken");
+////			throw new BadRequestException(apiResponse);
+////		}
+//
+//		List<Role> roles = new ArrayList<>();
+//		roles.add(
+//				roleRepository.findByName(RoleName.ROLE_USER).orElseThrow(() -> new AppException("User role not set")));
+//		billingDetails.setRoles(roles);
+//
+//		//user.setPassword(passwordEncoder.encode(user.getPassword()));
+//		return userRepository.save(billingDetails);
+//	}
 
 	@Override
 	public User updateUser(User newUser, String username, UserPrincipal currentUser) {

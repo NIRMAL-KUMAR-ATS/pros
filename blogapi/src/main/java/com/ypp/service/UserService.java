@@ -1,5 +1,6 @@
 package com.ypp.service;
 
+
 import com.ypp.model.user.User;
 import com.ypp.payload.ApiResponse;
 import com.ypp.payload.InfoRequest;
@@ -20,6 +21,8 @@ public interface UserService {
 	UserProfile getUserProfile(String username);
 
 	User addUser(User user);
+//	BillingDetails addBillingDetails(BillingDetails billingDetails);
+
 
 	User updateUser(User newUser, String username, UserPrincipal currentUser);
 

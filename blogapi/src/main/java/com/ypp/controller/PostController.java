@@ -42,7 +42,7 @@ public class PostController {
 		return new ResponseEntity< >(response, HttpStatus.OK);
 		
 	}
-
+	
 	@GetMapping("/category/{id}")
 	public ResponseEntity<PagedResponse<Post>> getPostsByCategory(
 			@RequestParam(value = "page", required = false, defaultValue = AppConstants.DEFAULT_PAGE_NUMBER) Integer page,
